@@ -1,0 +1,126 @@
+.container-home{
+    width: 800px;
+    margin: 0 auto;
+    
+}
+
+.div-header{
+    margin-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-logout{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.create-post-logout{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+.create-post-logout .create-Post{
+    width: 152px;
+    height: 38px;
+    border: 1px solid var(--brand100);
+    border-radius: 4px;
+    color: var(--gray900);
+    background-color: var(--brand100);
+    cursor: pointer;
+}
+
+.category{
+    display: flex;
+    align-items: center;
+    background-color: var(--gray600);
+    height: 64px;
+    margin: 32px 0
+}
+
+.post-list .post{
+    margin-bottom: 64px;
+    padding-bottom: 30px;
+}
+
+.post .post-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post .img-data{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post .img-data img{
+    width: 45px;
+    border-radius: 50%;
+}
+
+.post .img-data :nth-child(2){
+    font-weight: 600;
+}
+
+.post .img-data :nth-child(3){
+    color: var(--gray400);
+}
+
+.post .img-data :nth-child(4){
+    color: var(--gray400);
+}
+
+.btn-edit-delet button{
+    width: 55px;
+    height: 32px;
+    border-radius: 4px;
+    font-weight: 600;
+    border: 1px solid var(--gray600);
+    cursor: pointer;
+}
+
+.btn-edit-delet button:hover{
+    background-color: var(--brand100);
+    color: var(--gray900);
+}
+
+.btn-edit-delet .edit{
+    background-color: var(--gray900);
+}
+
+.btn-edit-delet .delete{
+    border: 1px solid var(--gray600);
+    color: var(--gray400);
+
+}
+
+.post .post-info h2{
+    margin: 24px 0;
+}
+
+.post .post-info p{
+    margin-bottom: 24px;
+    /*max-width: 120ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;*/
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.post .post-info .complete-post{
+    width: 142px;
+    height: 24px;
+    color: var(--brand100);
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/globalStyles.css">
+    <link rel="stylesheet" href="styles/toast.css">
+    <link rel="stylesheet" href="pages/login/index.css">
+    <title>Petinfo - Login</title>
+</head>
+<body>
+    <main class="container-main">
+        <div class="left">
+            <h1>Petinfo</h1>
+            <h1><span>Amor</span> e <span>carinho</span> por meio do conhecimento</h1>
+            <p>Todas as informações para melhorar a vida do seu pet em um só lugar</p>
+            <div class="pet-imgs">
+                <div class="div-img">
+                    <img src="assets/img/Rectangle 2.png" alt="">
+                    <img src="assets/img/Rectangle 3.png" alt="">
+                    <img src="assets/img/Rectangle 4.png" alt="">
+                </div>
+                <img src="assets/img/Rectangle 5.png" alt="">
+            </div>
+        </div>
+        <div class="right">
+            <h3>Login</h3>
+            <form class="login-content">
+                <div class="user">
+                    <label for="user">Usuário</label>
+                    <input id="email"type="text" placeholder="Digite seu usuário aqui...">
+                </div>
+                <div class="password">
+                    <label for="password">Senha</label>
+                    <input id="password" type="password" placeholder="Digite sua Senha aqui...">
+                </div>
+                <span class="error-data"></span>
+                <button type="submit" class="button-login">Acessar</button>
+            </form>
+            <div class="register">
+                <p>Ainda não possui conta?</p>
+                <p>Clicando no botão abaixo, você pode se cadastrar rapidamente</p>
+            </div>
+            <a href="pages/register/register.html"><button class="button-register">Cadastrar</button></a>
+        </div>
+
+    </main>
+    <script type="module" src="scripts/login.js"></script>
+</body>
+</html>
