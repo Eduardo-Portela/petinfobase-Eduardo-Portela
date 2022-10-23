@@ -1,4 +1,4 @@
-const toast = (title, message) => {
+const toast = (title, message,imgPath) => {
     const body = document.querySelector("body")
 
     const container = document.createElement("div")
@@ -12,10 +12,10 @@ const toast = (title, message) => {
 
     if(title == "Sucesso!"){
         container.classList.add("sucess-toast")
-        icon.src = "../../assets/img/check.png"
+        icon.src = imgPath
     } else{
         container.classList.add("error-toast")
-        icon.src = "../../assets/img/error.png"
+        icon.src = imgPath
     }
 
     const textContainer = document.createElement("div")

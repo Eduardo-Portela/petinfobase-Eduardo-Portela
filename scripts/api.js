@@ -17,7 +17,7 @@ async function login(body){
 
         if(request.ok){
         const requestJson = await request.json()
-        toast("Sucesso!", "Login feito com sucesso!")
+        toast("Sucesso!", "Login feito com sucesso!", "./assets/img/check.png")
         
         localStorage.setItem("user",JSON.stringify(requestJson))
 
@@ -52,13 +52,13 @@ async function register(body){
 
         if(request.ok){
             const requestJson = await request.json()
-            toast("Sucesso!", "Cadastro feito com sucesso!")
+            toast("Sucesso!", "Cadastro feito com sucesso!", "../../assets/img/check.png")
     
             setTimeout(() => {
                 window.location.assign("../../index.html")
             }, 4000)
         }else{
-            toast("Erro", "Algo deu errado")
+            toast("Erro", "Algo deu errado", "../../assets/img/error.png")
         }
 
 }catch(err){
@@ -162,7 +162,7 @@ async function deletePost(id){
             }
         })
         if(request.ok){
-            toast("Sucesso!", "O post selecionado para exlusão foi deletado, a partir de agora não aparecerá no seu feed ")
+            toast("Sucesso!", "O post selecionado para exlusão foi deletado, a partir de agora não aparecerá no seu feed ","../../assets/img/check.png")
         }
 
     }catch(err){
