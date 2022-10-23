@@ -133,7 +133,7 @@ const postCompleteForm = ({user: {avatar}, user: {username}, createdAt, title, c
     const titlePost = document.createElement("h2")
     const descriptionPost = document.createElement("p")
 
-    image.src = avatar == "" ? "/assets/img/no-img-user.png" : avatar
+    image.src = avatar == "" ? "./assets/img/no-img-user.png" : avatar
     nome.innerText = username
     span.innerText = "|"
     datePost.innerText = createdAt

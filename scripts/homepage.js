@@ -43,9 +43,9 @@ const renderImgHeader = (img) =>{
 
 
     imgProfile.classList.add("img-logout")
-    imgProfile.src =  img == "" ? "/assets/img/no-img-user.png" : img
+    imgProfile.src =  img == "" ? "./assets/img/no-img-user.png" : img
     nameProfile.innerText = `@${getInfos.username}`
-    buttonLogout.innerHTML = `<img src="/assets/img/sign-out-alt.png" alt=""> Sair da conta`
+    buttonLogout.innerHTML = `<img src="./assets/img/sign-out-alt.png" alt=""> Sair da conta`
 
     divLogout.append(imgProfile,divBoxLogout)
     divBoxLogout.append(nameProfile, buttonLogout)
@@ -111,7 +111,7 @@ const renderPosts = async() => {
     descriptionPost.classList.add("post-description")
     postComplete.classList.add("complete-post")
 
-    image.src = avatar == "" ? "/assets/img/no-img-user.png" : avatar
+    image.src = avatar == "" ? "./assets/img/no-img-user.png" : avatar
     nome.innerText = username
     span.innerText = "|"
     datePost.innerText = createdAt
