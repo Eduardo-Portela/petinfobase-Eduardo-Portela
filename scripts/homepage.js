@@ -9,7 +9,7 @@ import { deletePostForm } from "./forms.js";
 import { postCompleteForm } from "./forms.js";
 
 const getInfos = await getDatas()
-console.log(getInfos)
+
 const verify = () => {
     const user = getLocalStorage()
     if(user == ""){
@@ -45,7 +45,7 @@ const renderImgHeader = (img) =>{
     imgProfile.classList.add("img-logout")
     imgProfile.src =  img == "" ? "./assets/img/no-img-user.png" : img
     nameProfile.innerText = `@${getInfos.username}`
-    buttonLogout.innerHTML = `<img src="./assets/img/sign-out-alt.png" alt=""> Sair da conta`
+    buttonLogout.innerHTML = `<img src="../../assets/img/sign-out-alt.png" alt=""> Sair da conta`
 
     divLogout.append(imgProfile,divBoxLogout)
     divBoxLogout.append(nameProfile, buttonLogout)
