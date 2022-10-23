@@ -8,6 +8,8 @@ import { editPostForm } from "./forms.js";
 import { deletePostForm } from "./forms.js";
 import { postCompleteForm } from "./forms.js";
 
+const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "julho", "Agosto","Setembro", "Outubro", "Novembro", "Dezembro"]
+
 const getInfos = await getDatas()
 
 const verify = () => {
@@ -65,7 +67,10 @@ const renderPosts = async() => {
 
     getPost.forEach(post => {
         const {user: {avatar}, user: {username}, createdAt, title, content, user: {id}} = post
-        
+        const hoje = new Date(createdAt)
+        const year = hoje.getFullYear()
+        const month = months[hoje.getMonth()]
+
     const postLi = document.createElement("li")
     const postHeader = document.createElement("div")
     const imgData = document.createElement("div")
@@ -114,7 +119,7 @@ const renderPosts = async() => {
     image.src = avatar == "" ? "./assets/img/no-img-user.png" : avatar
     nome.innerText = username
     span.innerText = "|"
-    datePost.innerText = createdAt
+    datePost.innerText = `${month} de ${year}`
     btnEdit.innerText = "Edit"
     btnDelete.innerText = "Delete"
     titlePost.innerText = title

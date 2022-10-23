@@ -117,6 +117,12 @@ const deletePostForm = (id) => {
 }
 
 const postCompleteForm = ({user: {avatar}, user: {username}, createdAt, title, content}) => {
+    const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "julho", "Agosto","Setembro", "Outubro", "Novembro", "Dezembro"]
+
+    const hoje = new Date(createdAt)
+    const year = hoje.getFullYear()
+    const month = months[hoje.getMonth()]
+
     const mainDiv = document.createElement("div")
     const divHeader = document.createElement("div")
     const imgData = document.createElement("div")
@@ -136,7 +142,7 @@ const postCompleteForm = ({user: {avatar}, user: {username}, createdAt, title, c
     image.src = avatar == "" ? "./assets/img/no-img-user.png" : avatar
     nome.innerText = username
     span.innerText = "|"
-    datePost.innerText = createdAt
+    datePost.innerText = `${month} de ${year}`
     titlePost.innerText = title
     descriptionPost.innerText = content
 
