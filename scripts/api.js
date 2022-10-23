@@ -24,7 +24,7 @@ async function login(body){
         
         setTimeout(() => {
             
-            window.location.replace("../pages/homepage/homepage.html")
+            window.location.replace("/pages/homepage/homepage.html")
         }, 4000)
         }else{
             const inputs = document.querySelectorAll(".login-content input")
