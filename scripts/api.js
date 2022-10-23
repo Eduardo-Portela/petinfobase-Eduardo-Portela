@@ -5,6 +5,7 @@ import { getLocalStorage } from "./localStorage.js"
 const baseUrl = "http://localhost:3333"
 
 async function login(body){
+
     try{
         const request = await fetch(`${baseUrl}/login`, {
             method: "POST",
@@ -109,11 +110,75 @@ async function getDatas(){
 
 }
 
+async function createPostRequest(body1){
+    const localStorage = getLocalStorage()
+
+    try{
+        const request = await fetch(`${baseUrl}/posts/create`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.token}`
+          },
+          body: JSON.stringify(body1)
+        })
+        const requestJson = await request.json()
+
+        return requestJson
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
+async function editPostRequest(body1,id){
+    const localStorage = getLocalStorage()
+
+    try{
+        const request = await fetch(`${baseUrl}/posts/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            },
+            body: JSON.stringify(body1)
+        })
+        const response = await request.json()
+
+        return response
+    }catch(err){
+        console.log(err)
+    }
+}
+
+async function deletePost(id){
+    const localStorage = getLocalStorage()
+    try{
+
+        const request = await fetch(`${baseUrl}/posts/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${localStorage.token}`
+            }
+        })
+        if(request.ok){
+            toast("Sucesso!", "O post selecionado para exlusão foi deletado, a partir de agora não aparecerá no seu feed ")
+        }
+
+    }catch(err){
+        console.log(err)
+    }
+}
+
 
 
 export{
     login,
     register,
     getPosts,
-    getDatas
+    getDatas,
+    createPostRequest,
+    editPostRequest,
+    deletePost
 }

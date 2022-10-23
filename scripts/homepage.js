@@ -1,10 +1,15 @@
 import { getLocalStorage } from "./localStorage.js";
 import { getPosts } from "./api.js";
 import { getDatas } from "./api.js";
+import { createPostRequest } from "./api.js";
+import { createPostForm } from "./forms.js";
+import { openModal } from "./modal.js";
+import { editPostForm } from "./forms.js";
+import { deletePostForm } from "./forms.js";
+import { postCompleteForm } from "./forms.js";
 
 const getInfos = await getDatas()
-
-
+console.log(getInfos)
 const verify = () => {
     const user = getLocalStorage()
     if(user == ""){
@@ -22,11 +27,30 @@ const renderImgHeader = (img) =>{
     buttonCreatePost.classList.add("create-Post")
     buttonCreatePost.innerText = "Criar publicação"
     
+    const divLogout = document.createElement("div")
     const imgProfile = document.createElement("img")
+    const divBoxLogout = document.createElement("div")
+    const nameProfile = document.createElement("p")
+    const buttonLogout = document.createElement("button")
+
+    buttonLogout.addEventListener("click", () =>{
+        localStorage.removeItem("user")
+        window.location.reload(true)
+    })
+
+    divLogout.classList.add("div-main-logout")
+    divBoxLogout.classList.add("div-logout")
+
+
     imgProfile.classList.add("img-logout")
     imgProfile.src =  img == "" ? "/assets/img/no-img-user.png" : img
+    nameProfile.innerText = `@${getInfos.username}`
+    buttonLogout.innerHTML = `<img src="/assets/img/sign-out-alt.png" alt=""> Sair da conta`
 
-    divCreatePost.append(buttonCreatePost, imgProfile)
+    divLogout.append(imgProfile,divBoxLogout)
+    divBoxLogout.append(nameProfile, buttonLogout)
+
+    divCreatePost.append(buttonCreatePost, divLogout)
 }
 renderImgHeader(getInfos.avatar)
 
@@ -35,12 +59,12 @@ renderImgHeader(getInfos.avatar)
 const renderPosts = async() => {
 
     const listaPosts = document.querySelector(".post-list")
-    //listaPosts.innerText = ""
+    listaPosts.innerText = ""
 
     const getPost = await getPosts()
 
     getPost.forEach(post => {
-        const {user: {avatar}, user: {username}, createdAt, title, content, id} = post
+        const {user: {avatar}, user: {username}, createdAt, title, content, user: {id}} = post
         
     const postLi = document.createElement("li")
     const postHeader = document.createElement("div")
@@ -49,19 +73,35 @@ const renderPosts = async() => {
     const nome = document.createElement("p")
     const span = document.createElement("span")
     const datePost = document.createElement("p")
-
     const divBtnEditDelete = document.createElement("div")
+     
     const btnEdit = document.createElement("button")
+        btnEdit.addEventListener("click", ()=> {
+            const editModal = editPostForm(post)
+            openModal(editModal)
+        })
+
+
     const btnDelete = document.createElement("button")
+    btnDelete.addEventListener("click", (e)=>{
+        const modalDelete = deletePostForm(post.id)
+        openModal(modalDelete)
+    })
 
     const postInfo = document.createElement("div")
     const titlePost = document.createElement("h2")
     const descriptionPost = document.createElement("p")
     const postComplete = document.createElement("button")
 
+    postComplete.addEventListener("click", () => {
+        const modalComplete = postCompleteForm(post)
+        openModal(modalComplete)
+    })
+
     postLi.classList = "post"
-    postLi.id = id
+    postLi.id = post.id
     postHeader.classList.add("post-header")
+    postHeader.id = id
     imgData.classList.add("img-data")
     divBtnEditDelete.classList.add("btn-edit-delet")
     btnEdit.classList.add("edit")
@@ -84,7 +124,10 @@ const renderPosts = async() => {
     postLi.append(postHeader,postInfo)
     postHeader.append(imgData,divBtnEditDelete)
     imgData.append(image, nome,span,datePost)
-    divBtnEditDelete.append(btnEdit,btnDelete)
+
+    if(postHeader.id == getInfos.id){
+        divBtnEditDelete.append(btnEdit,btnDelete)
+    }
 
     postInfo.append(titlePost,descriptionPost,postComplete)
     
@@ -94,26 +137,18 @@ const renderPosts = async() => {
 
 renderPosts()
 
+const createPost = () => {
+    const btnCreatePost = document.querySelector(".create-Post")
 
-/*     <li class="post">
-        <div class="post-header">
-            <div class="img-data">
-                <img src="../../assets/img/register-2.png" alt="">
-                <p>Gato Felix</p>
-                <span>|</span>
-                <p>Outubro de 2022</p>
-            </div>
-            <div class="btn-edit-delet">
-                <button class="edit">Editar</button>
-                <button class="delete">Excluir</button>
-            </div>
-        </div>
+    btnCreatePost.addEventListener("click", async () =>{
 
-        <div class="post-info">
-            <h2 class="post-title">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam doloremque earum totam, ut exercitationem dicta repellat</h2>
+        const formCreate = createPostForm()
+        openModal(formCreate)
+    })
+}
 
-            <p class="post-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, ut distinctio iusto reiciendis sit atque nulla, velit dolore suscipit corporis dolorum voluptas. Velit pariatur totam dolorem vero harum delectus itaque? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ab recusandae, qui ad expedita maxime. Unde facere magnam, aspernatur commodi, omnis aliquid magni at, corporis ipsum ea nisi vero hic.</p>
+createPost()
 
-            <button class="complete-post">Acessar publicação</button>
-        </div>
-    </li>*/
+export{
+    renderPosts
+}

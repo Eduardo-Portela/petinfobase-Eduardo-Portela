@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/globalStyles.css">
+    <link rel="stylesheet" href="styles/animation.css">
     <link rel="stylesheet" href="styles/toast.css">
     <link rel="stylesheet" href="pages/login/index.css">
     <title>Petinfo - Login</title>
@@ -29,14 +30,14 @@
             <form class="login-content">
                 <div class="user">
                     <label for="user">Usuário</label>
-                    <input id="email"type="text" placeholder="Digite seu usuário aqui...">
+                    <input class="log" id="email"type="text" placeholder="Digite seu usuário aqui...">
                 </div>
                 <div class="password">
                     <label for="password">Senha</label>
-                    <input id="password" type="password" placeholder="Digite sua Senha aqui...">
+                    <input class="pass" id="password" type="password" placeholder="Digite sua Senha aqui...">
                 </div>
                 <span class="error-data"></span>
-                <button type="submit" class="button-login">Acessar</button>
+                <button disabled type="submit" class="button-login">Acessar</button>
             </form>
             <div class="register">
                 <p>Ainda não possui conta?</p>

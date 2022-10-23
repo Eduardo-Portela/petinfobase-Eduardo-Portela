@@ -97,7 +97,7 @@ input:focus{
     background-color: var(--brand100);
     color: var(--gray900);
     border: 1px solid var(--brand100);
-    cursor: pointer;
+    opacity: 0.5;
 }
 
 .register :nth-child(1){

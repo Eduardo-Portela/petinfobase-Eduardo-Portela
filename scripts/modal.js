@@ -13,7 +13,7 @@ export const openModal = (children) => {
 
     backGround.addEventListener("click", (event) => {
         const {className} = event.target
-        if(className == "back-modal" || className == "button-close"){
+        if(className == "back-modal" || className == "button-close" || className == "cancel"){
             backGround.remove()
         }
     })
@@ -24,7 +24,3 @@ export const openModal = (children) => {
 
     body.appendChild(backGround)
 }
-const h1 = document.createElement("h1")
-h1.innerText = "adaijodaiodjiaojmdioajndansmdan"
-
-//openModal(h1)

@@ -1,12 +1,16 @@
 import { register } from "./api.js";
 
+const buttonRegister = document.querySelector(".button-register2")
+
+
 const eventRegister = () => {
     const form = document.querySelector(".box-register")
     const elements = [...form.elements]
-    console.log(elements)
 
     form.addEventListener("submit", async (e) => {
         e.preventDefault()
+
+        buttonRegister.innerHTML = `<div class="loader">Loading...</div>`
 
         const body = {}
 
@@ -16,7 +20,27 @@ const eventRegister = () => {
             }
         })
         await register(body)
+        buttonRegister.innerHTML = "Cadastrar"
     })
 }
 
 eventRegister()
+
+
+
+    // elements.forEach((element) => {
+        
+    // if(element.tagName == "INPUT"){
+    //     element.addEventListener("input", () => {
+    //     if(element.value == ""){
+    //     buttonRegister.disabled = true
+    //     buttonRegister.style.opacity = "0.5"
+    //     buttonRegister.style.cursor = "default"
+    // }else{
+    //     buttonRegister.disabled = false
+    //     buttonRegister.style.opacity = "1"
+    //     buttonRegister.style.cursor = "pointer"
+    // }
+    // })
+    // }
+    // })

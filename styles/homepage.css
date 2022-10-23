@@ -43,7 +43,9 @@
 
 .post-list .post{
     margin-bottom: 64px;
-    padding-bottom: 30px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px  var(--gray400);
 }
 
 .post .post-header{
@@ -90,6 +92,7 @@
 
 .btn-edit-delet .edit{
     background-color: var(--gray900);
+    margin-right: 15px;
 }
 
 .btn-edit-delet .delete{
@@ -103,11 +106,11 @@
 }
 
 .post .post-info p{
+    word-break: break-all;
     margin-bottom: 24px;
-    /*max-width: 120ch;
-    white-space: nowrap;
+    max-width: 145ch;
     overflow: hidden;
-    text-overflow: ellipsis;*/
+    text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
@@ -115,12 +118,61 @@
 }
 
 .post .post-info .complete-post{
-    width: 142px;
+    width: 160px;
     height: 24px;
     color: var(--brand100);
-    background-color: transparent;
+    background-color: var(--gray600);
     border: none;
     font-weight: 600;
     cursor: pointer;
+    border-radius: 8px;
+    border: 1px solid var(--gray600);
 }
 
+.post .post-info .complete-post:hover{
+    background-color: var(--brand100);
+    color: white;
+  
+}
+
+/*Logout*/
+
+.div-main-logout{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.div-logout{
+    width: 215px;
+    position: absolute;
+    top: 53px;
+    right: 0;
+    background-color: var(--gray900);
+    border-radius: 4px;
+    border: 1px dashed var(--gray400);
+    display: none;
+}
+
+.div-main-logout:hover > .div-logout{
+    display: block;
+} 
+
+.div-logout p{
+    margin: 10px 0;
+    text-align: center;
+}
+
+.div-logout button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+
+}
+
+.div-logout button:hover{
+    background-color: var(--gray600);
+}

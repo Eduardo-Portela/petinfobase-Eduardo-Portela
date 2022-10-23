@@ -13,10 +13,10 @@
 }
 
 @keyframes toastIt{
-    0% {right: 30px; bottom: -100px}
+    0% {right: 30px; bottom: -150px}
     25% {right: 30px; bottom: 10px}
     50% {right: 30px; bottom: 10px}
-    100% {right: 30px; bottom: -100px}
+    100% {right: 30px; bottom: -150px}
 }
 
 .div-img2 > img{
