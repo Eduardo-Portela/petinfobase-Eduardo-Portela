@@ -15,7 +15,6 @@ async function login(body){
             body: JSON.stringify(body)
         })
 
-        console.log(request)
         if(request.ok){
         const requestJson = await request.json()
         toast("Sucesso!", "Login feito com sucesso!")
@@ -25,7 +24,7 @@ async function login(body){
         
         setTimeout(() => {
             
-            window.location.assign("../pages/homepage/homepage.html")
+            window.location.replace("../pages/homepage/homepage.html")
         }, 4000)
         }else{
             const inputs = document.querySelectorAll(".login-content input")
