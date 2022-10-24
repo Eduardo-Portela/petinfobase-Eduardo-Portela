@@ -26,11 +26,8 @@ const eventRegister = () => {
 
 eventRegister()
 
-
-
      elements.forEach((element) => {
         if(element.tagName == "INPUT"){
-        console.log(element)
         element.addEventListener("input", () => {
         if(element.value == ""){
         buttonRegister.disabled = true

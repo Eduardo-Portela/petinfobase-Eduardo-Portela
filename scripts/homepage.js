@@ -112,7 +112,7 @@ const renderPosts = async() => {
     descriptionPost.classList.add("post-description")
     postComplete.classList.add("complete-post")
 
-    image.src = avatar == "" ? "./assets/img/no-img-user.png" : avatar
+    image.src = avatar == "" ? "../../assets/img/no-img-user.png" : avatar
     nome.innerText = username
     span.innerText = "|"
     datePost.innerText = `${month} de ${year}`
