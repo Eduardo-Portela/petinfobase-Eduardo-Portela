@@ -1,12 +1,8 @@
 import { getLocalStorage } from "./localStorage.js";
-import { getPosts } from "./api.js";
-import { getDatas } from "./api.js";
-import { createPostRequest } from "./api.js";
-import { createPostForm } from "./forms.js";
+import { getPosts, getDatas } from "./api.js";
+import { createPostForm, editPostForm, deletePostForm, postCompleteForm } from "./forms.js";
 import { openModal } from "./modal.js";
-import { editPostForm } from "./forms.js";
-import { deletePostForm } from "./forms.js";
-import { postCompleteForm } from "./forms.js";
+
 
 const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "julho", "Agosto","Setembro", "Outubro", "Novembro", "Dezembro"]
 

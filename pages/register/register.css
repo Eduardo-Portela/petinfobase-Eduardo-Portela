@@ -94,8 +94,9 @@ button{
     background-color: var(--brand100);
     color: var(--gray900);
     border: 1px solid var(--brand100);
-    cursor: pointer;
+    opacity: 0.5;
     border-radius: 4px;
+
 }
 
 .box-register .button-login-page{

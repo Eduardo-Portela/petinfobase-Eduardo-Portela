@@ -1,8 +1,5 @@
 import { renderPosts } from "./homepage.js"
-import { createPostRequest} from "./api.js"
-import { editPostRequest } from "./api.js"
-import { deletePost } from "./api.js"
-import { getDatas } from "./api.js"
+import { createPostRequest,editPostRequest, deletePost, getDatas } from "./api.js"
 
 const getInfos2 = await getDatas()
 
